@@ -26,7 +26,7 @@ class UserService extends AbstractService<User> {
 	}
 
 	async updateUser(uuid: string, user: User) {
-		return this.repository.update(uuid, UserEntity.create(user).getUser());
+		return this.repository.update(uuid, UserEntity.create(user).getUserUpdate());
 	}
 
   async findUserByEmail(email: string) {

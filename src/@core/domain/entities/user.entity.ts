@@ -6,6 +6,8 @@ type UserProps = {
 	uuid?: string;
 	name: string;
 	lastname: string;
+	document: string;
+	ra: string,
 	email: string;
 	role?: string;
 	password?: string;
@@ -50,6 +52,16 @@ export class UserEntity {
 		return this.props.email.toLowerCase();
 	}
 
+	get document() {
+		const pattern = /\d+/g;
+		return this.props.document.match(pattern).join('')
+	}
+
+	get ra() {
+		const pattern = /\d+/g;
+		return this.props.ra.match(pattern).join('')
+	}
+
 	get password() {
 		return this.props.password ? hash(this.props.password) : undefined;
 	}
@@ -71,6 +83,19 @@ export class UserEntity {
 			uuid: this.uuid,
 			name: this.name,
 			lastname: this.lastname,
+			document: this.document,
+			ra: this.ra,
+			email: this.email,
+			role: this.role,
+			password: this.password,
+		} as UserEntity;
+	}
+
+	getUserUpdate() {
+		return {
+			uuid: this.uuid,
+			name: this.name,
+			lastname: this.lastname,
 			email: this.email,
 			role: this.role,
 			password: this.password,
@@ -86,6 +111,8 @@ export class UserEntity {
 			uuid: this.uuid,
 			name: this.name,
 			lastname: this.lastname,
+			document: this.document,
+			ra: this.ra,
 			email: this.email,
 			role: this.role,
 			createdAt: this.createdAt,
