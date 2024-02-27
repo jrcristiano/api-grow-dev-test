@@ -19,6 +19,10 @@ abstract class AbstractService<Entity> {
 		return await this.repository.find();
 	}
 
+	async count(): Promise<number> {
+		return this.repository.count();
+	}
+
 	async create(data: Entity): Promise<Entity> {
 		return await this.repository.save<Entity>(data);
 	}

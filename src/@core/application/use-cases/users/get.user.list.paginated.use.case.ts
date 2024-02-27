@@ -1,9 +1,8 @@
-import { Request } from "express";
 import userService from "../../services/user.service";
 
 class GetUserListPaginatedUseCase {
-	async execute(req: Request) {
-		return userService.getUserListPaginated(req);
+	async execute(page: number, perPage: number) {
+		return userService.getUserListPaginated(page, perPage);
 	}
 }
 
