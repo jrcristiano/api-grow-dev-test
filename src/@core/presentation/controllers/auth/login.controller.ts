@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { validationResult } from "express-validator";
 import { env } from "process";
-import userService from "../../../application/services/user.service";
+import findUserByEmailUseCase from "../../../application/use-cases/users/find.user.by.email.use.case";
 import HttpStatus from "../../../domain/enums/http.status";
 import UserInterface from "../../../domain/interfaces/user.interface";
 import { check } from "../../../infra/utils/bcrypt.util";
@@ -18,7 +18,7 @@ class LoginController {
 			});
 		}
 
-		const user = await userService.findUserByEmail(email) as UserInterface;
+		const user = await findUserByEmailUseCase.execute(email) as UserInterface;
 		if (!user) {
 			return res.status(HttpStatus.NOT_FOUND).json({
 				message: 'User not found.',

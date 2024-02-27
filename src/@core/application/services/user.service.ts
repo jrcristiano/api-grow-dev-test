@@ -1,4 +1,5 @@
 
+import { Request } from "express";
 import { UserEntity } from "../../domain/entities/user.entity";
 import User from "../../infra/db/entities/user.entity";
 import AbstractService from "./abstract.service";
@@ -7,6 +8,19 @@ class UserService extends AbstractService<User> {
   constructor() {
     super(User);
   }
+
+	async getUserListPaginated(req: Request) {
+		let page = req.params.page ? Number(req.params.page) : 0;
+		let take = req.params.take ? Number(req.params.take) : 10;
+
+    const skip = (page - 1) * take;
+		const users = await this.repository.find({
+      skip,
+      take,
+    });
+
+		return users.map((user: User) => UserEntity.create(user).getUserWithoutPassword());
+	}
 
 	async createUser(user: User) {
 		const createdUser = UserEntity.create(user);
@@ -30,7 +44,7 @@ class UserService extends AbstractService<User> {
 		return users.map((user: User) => UserEntity.create(user).getUserWithoutPassword())
 	}
 
-	async findUserById(uuid: string) {
+	async findUserByUuId(uuid: string) {
 		const user = await this.repository.findOneOrFail({
 			where: {
 				uuid,

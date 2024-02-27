@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import UserService from "../../../application/services/user.service";
+import findUserByUuidUseCase from "../../../application/use-cases/users/find.user.by.uuid.use.case";
 import HttpStatus from "../../../domain/enums/http.status";
 
 class FindUserController {
 	async execute({ params }: Request, res: Response) {
-		const user = await UserService.findUserById(params.uuid);
+		const user = await findUserByUuidUseCase.execute(params.uuid);
 		if (!user) {
 			return res.status(HttpStatus.NOT_FOUND).json({
 				message: `User ${params.uuid} not found!`,

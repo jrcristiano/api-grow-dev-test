@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { validationResult } from "express-validator";
-import UserService from "../../../application/services/user.service";
+import createUserUseCase from "../../../application/use-cases/users/create.user.use.case";
 import HttpStatus from "../../../domain/enums/http.status";
 import UserEntity from "../../../infra/db/entities/user.entity";
 
@@ -15,7 +15,7 @@ class CreateUserController {
 
 		const user = req.body as UserEntity;
 
-		return res.status(HttpStatus.CREATED).json(await UserService.createUser(user));
+		return res.status(HttpStatus.CREATED).json(await createUserUseCase.execute(user));
 	}
 }
 
