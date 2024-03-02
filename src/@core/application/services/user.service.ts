@@ -10,6 +10,7 @@ class UserService extends AbstractService<User> {
 
 	async getUserListPaginated(page: number, perPage: number) {
 		const skip = (page - 1) * perPage;
+
 		const users = await this.repository.find({
       skip,
       take: perPage,

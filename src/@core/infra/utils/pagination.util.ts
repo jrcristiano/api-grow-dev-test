@@ -24,3 +24,7 @@ export function getLastPage({ query }: Request, totalItems: number) {
 export function getPrevPage(currentPage: number) {
 	return currentPage === 1 ? null : currentPage - 1;
 }
+
+export function getNextPage(currentPage: number) {
+	return currentPage === 1 ? null : currentPage + 1;
+}

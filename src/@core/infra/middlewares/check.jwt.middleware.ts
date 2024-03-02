@@ -5,7 +5,7 @@ import HttpStatus from "../../domain/enums/http.status";
 import JwtDecoded from "../../domain/interfaces/jwt.decoded.interface";
 
 class CheckJwtMiddleware {
-  handler(req: Request, res: Response, next: NextFunction) {
+  handle(req: Request, res: Response, next: NextFunction) {
 
     const token = req.headers.authorization;
     if (!token) {

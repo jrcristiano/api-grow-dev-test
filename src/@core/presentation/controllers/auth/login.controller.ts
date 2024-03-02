@@ -38,7 +38,7 @@ class LoginController {
 
 		return res.status(HttpStatus.OK).json({
 			token,
-			expiresIn: env.API_TOKEN_EXPIRES_IN,
+			expiresIn: env.API_TOKEN_EXPIRES_TIME,
 		});
   }
 }

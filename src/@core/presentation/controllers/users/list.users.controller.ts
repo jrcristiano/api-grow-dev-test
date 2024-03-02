@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import countUserListUseCase from "../../../application/use-cases/users/count.user.list.use.case";
 import getUserListPaginatedUseCase from "../../../application/use-cases/users/get.user.list.paginated.use.case";
 import HttpStatus from "../../../domain/enums/http.status";
-import { getLastPage, getPrevPage, pagination } from "../../../infra/utils/pagination.util";
+import { getLastPage, getNextPage, getPrevPage, pagination } from "../../../infra/utils/pagination.util";
 
 class ListUserController {
 	async execute(req: Request, res: Response) {
@@ -16,6 +16,7 @@ class ListUserController {
 				total: users.length,
 				currentPage,
 				prevPage: getPrevPage(currentPage),
+				nextPage: getNextPage(currentPage),
 				lastPage: getLastPage(req, await countUserListUseCase.execute()),
 				perPage,
 			}

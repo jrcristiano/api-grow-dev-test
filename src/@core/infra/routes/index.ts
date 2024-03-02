@@ -16,10 +16,10 @@ router.post('/login', UserValidation.login, LoginController.execute);
 
 router.post('/users/install', insertInitialUsersController.execute);
 
-router.get('/users', CheckJwtMiddleware.handler, ListUsersController.execute);
-router.post('/users', CheckJwtMiddleware.handler, UserValidation.handle, CreateUserController.execute);
-router.get('/users/:uuid', CheckJwtMiddleware.handler, ValidateUuid.handle, FindUserController.execute);
-router.put('/users/:uuid', CheckJwtMiddleware.handler, ValidateUuid.handle, UserValidation.handle, UpdateUserController.execute);
-router.delete('/users/:uuid', CheckJwtMiddleware.handler, ValidateUuid.handle, DeleteUserController.execute);
+router.get('/users', CheckJwtMiddleware.handle, ListUsersController.execute);
+router.post('/users', CheckJwtMiddleware.handle, UserValidation.handle, CreateUserController.execute);
+router.get('/users/:uuid', CheckJwtMiddleware.handle, ValidateUuid.handle, FindUserController.execute);
+router.put('/users/:uuid', CheckJwtMiddleware.handle, ValidateUuid.handle, UserValidation.handle, UpdateUserController.execute);
+router.delete('/users/:uuid', CheckJwtMiddleware.handle, ValidateUuid.handle, DeleteUserController.execute);
 
 export default router;
