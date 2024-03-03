@@ -11,6 +11,24 @@
 			"name": "Users",
 			"item": [
 				{
+					"name": "Insert fake users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/install",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"install"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "List paginated users",
 					"event": [
 						{
@@ -27,7 +45,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvYmoiOnsidXVpZCI6IjYwNWUzZjIyLTUyYTAtNDk5Zi1iN2ZkLWFkMTA5N2ViM2Q1YSIsIm5hbWUiOiJBbHVubyIsImxhc3RuYW1lIjoiVGVzdGUiLCJlbWFpbCI6ImFsdW5vLnRlc3RlQHNlcnZlci5jb20iLCJjcGYiOiIxNzI5NDkwNTczOCIsInJhIjoiODU0NzIxNTYiLCJyb2xlIjoiU1RVREVOVCIsImNyZWF0ZWRBdCI6IjIwMjQtMDMtMDNUMDA6NDI6NTcuODgwWiIsInVwZGF0ZWRBdCI6IjIwMjQtMDMtMDNUMDA6NDI6NTcuODgwWiJ9LCJpYXQiOjE3MDk0MjY3MjUsImV4cCI6MTcwOTUxMzEyNX0.Ue4oid2RJBtULMAKqq9iy9Yj3Kj_QL2Mqcu0lhwV6sg",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{base_url}}/users",
 							"host": [
@@ -58,15 +82,21 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvYmoiOnsidXVpZCI6IjYwNWUzZjIyLTUyYTAtNDk5Zi1iN2ZkLWFkMTA5N2ViM2Q1YSIsIm5hbWUiOiJBbHVubyIsImxhc3RuYW1lIjoiVGVzdGUiLCJlbWFpbCI6ImFsdW5vLnRlc3RlQHNlcnZlci5jb20iLCJjcGYiOiIxNzI5NDkwNTczOCIsInJhIjoiODU0NzIxNTYiLCJyb2xlIjoiU1RVREVOVCIsImNyZWF0ZWRBdCI6IjIwMjQtMDMtMDNUMDA6NDI6NTcuODgwWiIsInVwZGF0ZWRBdCI6IjIwMjQtMDMtMDNUMDA6NDI6NTcuODgwWiJ9LCJpYXQiOjE3MDk0MjY3MjUsImV4cCI6MTcwOTUxMzEyNX0.Ue4oid2RJBtULMAKqq9iy9Yj3Kj_QL2Mqcu0lhwV6sg",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{base_url}}/users/{{uuid}}",
+							"raw": "{{base_url}}/users/64d744ce-9e51-4057-985f-ca6cd4ccff8d",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"{{uuid}}"
+								"64d744ce-9e51-4057-985f-ca6cd4ccff8d"
 							]
 						},
 						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -91,10 +121,16 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvYmoiOnsidXVpZCI6IjYwNWUzZjIyLTUyYTAtNDk5Zi1iN2ZkLWFkMTA5N2ViM2Q1YSIsIm5hbWUiOiJBbHVubyIsImxhc3RuYW1lIjoiVGVzdGUiLCJlbWFpbCI6ImFsdW5vLnRlc3RlQHNlcnZlci5jb20iLCJjcGYiOiIxNzI5NDkwNTczOCIsInJhIjoiODU0NzIxNTYiLCJyb2xlIjoiU1RVREVOVCIsImNyZWF0ZWRBdCI6IjIwMjQtMDMtMDNUMDA6NDI6NTcuODgwWiIsInVwZGF0ZWRBdCI6IjIwMjQtMDMtMDNUMDA6NDI6NTcuODgwWiJ9LCJpYXQiOjE3MDk0MjY3MjUsImV4cCI6MTcwOTUxMzEyNX0.Ue4oid2RJBtULMAKqq9iy9Yj3Kj_QL2Mqcu0lhwV6sg",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"cristiano\",\n    \"lastname\": \"junior\",\n    \"email\": \"cristiano.junior@edtech.com\",\n    \"password\": \"12345678\"\n}",
+							"raw": "{\n\t\"name\": \"cristiano\",\n    \"lastname\": \"junior\",\n    \"email\": \"cristiano.junior@edtech.com\",\n    \"cpf\": \"17294905738\",\n    \"ra\": \"95784236\",\n    \"password\": \"12345678\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -132,10 +168,16 @@
 					],
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvYmoiOnsidXVpZCI6IjYwNWUzZjIyLTUyYTAtNDk5Zi1iN2ZkLWFkMTA5N2ViM2Q1YSIsIm5hbWUiOiJBbHVubyIsImxhc3RuYW1lIjoiVGVzdGUiLCJlbWFpbCI6ImFsdW5vLnRlc3RlQHNlcnZlci5jb20iLCJjcGYiOiIxNzI5NDkwNTczOCIsInJhIjoiODU0NzIxNTYiLCJyb2xlIjoiU1RVREVOVCIsImNyZWF0ZWRBdCI6IjIwMjQtMDMtMDNUMDA6NDI6NTcuODgwWiIsInVwZGF0ZWRBdCI6IjIwMjQtMDMtMDNUMDA6NDI6NTcuODgwWiJ9LCJpYXQiOjE3MDk0MjY3MjUsImV4cCI6MTcwOTUxMzEyNX0.Ue4oid2RJBtULMAKqq9iy9Yj3Kj_QL2Mqcu0lhwV6sg",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+							"raw": "{\n\t\"name\": \"cristiano\",\n    \"lastname\": \"junior\",\n    \"email\": \"cristiano.junior02@edtech.com\",\n    \"password\": \"12345678\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -143,13 +185,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/users/{{uuid}}",
+							"raw": "{{base_url}}/users/e3e78b0d-243f-4ceb-b219-764e3c81d9ee",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"{{uuid}}"
+								"e3e78b0d-243f-4ceb-b219-764e3c81d9ee"
 							]
 						},
 						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
@@ -177,7 +219,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvYmoiOnsiaWQiOjEsIm5hbWUiOiJDcmlzdGlhbm8iLCJsYXN0bmFtZSI6Ikp1bmlvciIsImVtYWlsIjoiY3Jpc3RpYW5vLmp1bmlvckBzZXJ2ZXIuY29tIiwiY3JlYXRlZEF0IjoiMjAyNC0wMi0yM1QwMzozMjozMS42MzhaIiwidXBkYXRlZEF0IjoiMjAyNC0wMi0yM1QwMzozMjozMS42MzhaIn0sImlhdCI6MTcwODk3MzY5MiwiZXhwIjoxNzA4OTczNzI4fQ._CTEwzJIU1DD20R055icDOIm4vbITjX08cx8ld51NSM",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvYmoiOnsidXVpZCI6IjYwNWUzZjIyLTUyYTAtNDk5Zi1iN2ZkLWFkMTA5N2ViM2Q1YSIsIm5hbWUiOiJBbHVubyIsImxhc3RuYW1lIjoiVGVzdGUiLCJlbWFpbCI6ImFsdW5vLnRlc3RlQHNlcnZlci5jb20iLCJjcGYiOiIxNzI5NDkwNTczOCIsInJhIjoiODU0NzIxNTYiLCJyb2xlIjoiU1RVREVOVCIsImNyZWF0ZWRBdCI6IjIwMjQtMDMtMDNUMDA6NDI6NTcuODgwWiIsInVwZGF0ZWRBdCI6IjIwMjQtMDMtMDNUMDA6NDI6NTcuODgwWiJ9LCJpYXQiOjE3MDk0MjY3MjUsImV4cCI6MTcwOTUxMzEyNX0.Ue4oid2RJBtULMAKqq9iy9Yj3Kj_QL2Mqcu0lhwV6sg",
 								"type": "text"
 							}
 						],
@@ -216,7 +258,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"cristiano.junior@server.com\",\n    \"password\": \"12345678\"\n}",
+							"raw": "{\n    \"email\": \"aluno.teste@server.com\",\n    \"password\": \"12345678\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -230,29 +272,6 @@
 							],
 							"path": [
 								"login"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Getting started app",
-			"item": [
-				{
-					"name": "Create first users of the app",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/users/create-first-users-of-the-app",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"users",
-								"create-first-users-of-the-app"
 							]
 						}
 					},

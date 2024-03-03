@@ -18,9 +18,10 @@ Lista de bibliotecas de terceiros utilizadas:
 
 O que você melhoraria se tivesse mais tempo?
 	- Faria um ACL;
+	- Faria a documentação com o Swagger;
 	- Busca por outros dados: Nome, RA, CPF, etc;
 	- Trocaria a caixa de confirmação (confirm) por um modal do vuetify;
 	- Permitiria que somente os usuários administrativos tivessem acesso as telas relacionadas aos alunos;
 
 Quais requisitos obrigatórios que não foram entregues?
-	- CRUD de alunos SOMENTE por usuários administrativos, atualmente todos os perfis de usuários podem acessar o módulo de alunos.
+	- Acesso às telas de alunos SOMENTE por usuários administrativos, atualmente todos os perfis de usuários podem acessar o módulo de alunos.
