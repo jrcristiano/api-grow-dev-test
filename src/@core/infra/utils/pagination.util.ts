@@ -26,5 +26,5 @@ export function getPrevPage(currentPage: number) {
 }
 
 export function getNextPage(currentPage: number) {
-	return currentPage === 1 ? null : currentPage + 1;
+	return currentPage == 0 ? null : currentPage + 1;
 }
