@@ -16,7 +16,7 @@ export default class UserEntity extends BaseEntity {
     email: string;
 
 		@Column({ nullable: false, unique: true })
-    document: string;
+    cpf: string;
 
 		@Column({ nullable: false, unique: true })
     ra: string;

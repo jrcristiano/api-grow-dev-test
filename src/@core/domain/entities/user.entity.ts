@@ -6,8 +6,8 @@ type UserProps = {
 	uuid?: string;
 	name: string;
 	lastname: string;
-	document: string;
-	ra: string,
+	cpf?: string;
+	ra?: string,
 	email: string;
 	role?: string;
 	password?: string;
@@ -52,9 +52,9 @@ export class UserEntity {
 		return this.props.email.toLowerCase();
 	}
 
-	get document() {
+	get cpf() {
 		const pattern = /\d+/g;
-		return this.props.document.match(pattern).join('')
+		return this.props.cpf.match(pattern).join('')
 	}
 
 	get ra() {
@@ -83,7 +83,7 @@ export class UserEntity {
 			uuid: this.uuid,
 			name: this.name,
 			lastname: this.lastname,
-			document: this.document,
+			cpf: this.cpf,
 			ra: this.ra,
 			email: this.email,
 			role: this.role,
@@ -111,7 +111,7 @@ export class UserEntity {
 			uuid: this.uuid,
 			name: this.name,
 			lastname: this.lastname,
-			document: this.document,
+			cpf: this.cpf,
 			ra: this.ra,
 			email: this.email,
 			role: this.role,
